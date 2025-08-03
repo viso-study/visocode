@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+#API Keys
+*key*
+
 .env
 media/
