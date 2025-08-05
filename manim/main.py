@@ -87,7 +87,7 @@ class Manim(VoiceoverScene):
             self.play(
                 Indicate(blue_text, color=BLUE), Indicate(violet_text, color=PURPLE)
             )
-            self.play(FadeOut(sun_beam))  # Fade out the sun beam
+            self.play(FadeOut(sun_beam))
 
         # Scattering visualization
         num_molecules = 25
