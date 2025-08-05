@@ -16,6 +16,4 @@
 11. Open in VS Code
 12. Install recommended extensions
 13. Create and populate .env following .env.example
-14. `uv venv --python 3.11`
-15. Activate venv
-16. `uv pip install -r pyproject.toml`
+14. `uv sync`
