@@ -17,3 +17,4 @@
 12. Install recommended extensions
 13. Create and populate .env following .env.example
 14. `uv sync`
+15. Activate venv
