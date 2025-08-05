@@ -1,6 +1,6 @@
 # VisoCode
 
-> 🙋‍♂️➡️🎞️ VisoCode turns your questions into cinematic video explanations—powered by AI agents and rendered with Manim.
+> 🙋‍♂️➡️🎞️ VisoCode turns your questions into cinematic video explanations - powered by AI agents and rendered with Manim.
 
 ---
 ### 🧠 Overview
