@@ -1,7 +1,8 @@
 # calc_tool.py
 
-from smolagents import Tool
 import sympy as sp
+from smolagents import Tool
+
 
 class SympyTool(Tool):
     name = "sympy"
@@ -30,7 +31,7 @@ class SympyTool(Tool):
     output_type = "string"
 
     def forward(self, expression: str) -> str:
-        x, y, z, u = sp.symbols('x y z u')
+        x, y, z, u = sp.symbols("x y z u")
         try:
             expr = sp.sympify(expression)
         except (sp.SympifyError, TypeError):
@@ -39,7 +40,7 @@ class SympyTool(Tool):
                 "Use a single‑line SymPy string, e.g., `integrate(x**2, (x,0,1))`."
             )
 
-        result = expr.doit() if hasattr(expr, 'doit') else expr
-        latex_in  = sp.latex(expr)
+        result = expr.doit() if hasattr(expr, "doit") else expr
+        latex_in = sp.latex(expr)
         latex_out = sp.latex(result)
         return f"Input: $$ {latex_in} $$\nResult: $$ {latex_out} $$"

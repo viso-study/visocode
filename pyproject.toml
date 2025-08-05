@@ -5,10 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11.6,<3.12"
 dependencies = [
+    "gradio>=5.40.0",
     "manim>=0.19.0",
     "manim-voiceover-fixed[elevenlabs,gtts,transcribe]>=0.3.10",
     "numba>=0.61.2",
+    "openai>=1.98.0",
     "setuptools<81",
+    "smolagents>=1.20.0",
 ]
 
 [dependency-groups]

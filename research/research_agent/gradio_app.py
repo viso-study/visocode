@@ -1,10 +1,11 @@
 # gradio_app.py
 
-import gradio as gr
 import os
+import queue
 import sys
 import threading
-import queue
+
+import gradio as gr
 
 # Ensure we can import your main.py and its functions
 sys.path.insert(0, os.path.dirname(__file__))
@@ -35,6 +36,7 @@ button {
 }
 """
 
+
 def gradio_stream(question, file_path=""):
     # Thread-safe queue for printed chunks
     q = queue.Queue()
@@ -44,6 +46,7 @@ def gradio_stream(question, file_path=""):
         def write(self, txt):
             if txt:
                 q.put(txt)
+
         def flush(self):
             pass
 
@@ -60,7 +63,9 @@ def gradio_stream(question, file_path=""):
             combined = question
             fp = file_path.strip()
             if fp:
-                if (fp.startswith("'") and fp.endswith("'")) or (fp.startswith('"') and fp.endswith('"')):
+                if (fp.startswith("'") and fp.endswith("'")) or (
+                    fp.startswith('"') and fp.endswith('"')
+                ):
                     fp = fp[1:-1]
                 fp = os.path.normpath(fp)
                 if os.path.exists(fp):
@@ -89,6 +94,7 @@ def gradio_stream(question, file_path=""):
         output += chunk
         yield output
 
+
 # Build the Gradio interface with custom CSS
 demo = gr.Interface(
     fn=gradio_stream,
@@ -100,7 +106,7 @@ demo = gr.Interface(
     title="Deep Research Agent",
     description="All console logs (welcome banner, plans, tool output, final answers) will stream and accumulate below.",
     css=custom_css,
-    allow_flagging="never"
+    allow_flagging="never",
 )
 
 # Enable the generator-based streaming

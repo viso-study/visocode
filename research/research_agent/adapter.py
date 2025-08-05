@@ -3,6 +3,7 @@
 from openai import OpenAI
 from smolagents.agents import ChatMessage
 
+
 class KimiClientAdapter:
     def __init__(self, kimi_client: OpenAI, system_prompt: str = None):
         self.kimi = kimi_client
@@ -32,7 +33,7 @@ class KimiClientAdapter:
             model="kimi-k2-0711-preview",
             messages=openai_messages,
             stream=True,
-            **{k: v for k, v in kwargs.items() if k in {"temperature", "max_tokens"}}
+            **{k: v for k, v in kwargs.items() if k in {"temperature", "max_tokens"}},
         )
         collected = []
         for chunk in response:

@@ -3,6 +3,7 @@
 from smolagents import Tool
 from smolagents.agents import ChatMessage
 
+
 class AskClarificationTool(Tool):
     name = "ask_clarification"
     description = (
@@ -13,7 +14,7 @@ class AskClarificationTool(Tool):
     inputs = {
         "prompt": {
             "type": "string",
-            "description": "The user's original request or previous agent message"
+            "description": "The user's original request or previous agent message",
         }
     }
     output_type = "string"
@@ -30,16 +31,13 @@ class AskClarificationTool(Tool):
                 "that would prevent you from giving a correct, safe, or helpful response. "
                 "If you detect anything ambiguous or underspecified, ask exactly one follow‑up question "
                 "to obtain that detail. Otherwise reply with an empty string."
-            )
+            ),
         )
         user = ChatMessage(role="user", content=prompt)
 
         # Invoke your adapter/model quietly
         clarification = self.model(
-            [system, user],
-            temperature=0.3,
-            stream=True,
-            echo=False
+            [system, user], temperature=0.3, stream=True, echo=False
         )
 
         return clarification.content.strip()
