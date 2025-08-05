@@ -1,11 +1,12 @@
 # VisoCode
 
-> 🙋‍♂️->🎞️ VisoCode turns your questions into cinematic video explanations—powered by AI agents and rendered with Manim.
+> 🙋‍♂️➡️🎞️ VisoCode turns your questions into cinematic video explanations—powered by AI agents and rendered with Manim.
 
 ---
 ### 🧠 Overview
 
-VisoCode is an **AI-powered explainer engine** that transforms questions into **expert-level animated videos** using a multi-agent pipeline. Whether you're curious about quantum mechanics or calculus, Visocode gives you not just an answer, but an explanation you can **see**.
+VisoCode is an **AI-powered explainer engine** that transforms questions into **expert-level animated videos** using a multi-agent pipeline. Whether you're curious about medical AI, calculus or the code base in front of you, Visocode gives you not just an answer, but an explanation you can **see**.
+
 ---
 
 ### 🔄 How It Works
@@ -20,30 +21,29 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
 4. 💻 **CodeAgent** (powered by **Gemini**) turns that explanation into:
    - 🎬 Writes frame-accurate Manim scene code
    - 📐 Converts math into LaTeX-rendered visuals
-   - 🧩 Syncs icons, timing, and transitions for clarity
-5. 🎞️ **Output**: A beautifully rendered, frame-accurate Manim video that explains the concept like a human expert would—with visual clarity.
-
+   - 🧩 Coordinates  icons, timing, and transitions for clarity
+5. 🎞️ **Final Output**: A polished Manim animation that visualizes your question with expert clarity.
 ---
 
 ### 🚀 Why VisoCode?
 
-- ✨ **Visual-first learning**: Understand abstract topics through animation  
-- 🔗 **Agent-powered pipeline**: Modular, explainable, and extendable  
-- ⚡ **Fast, automated output**: From question to video in minutes  
-- 🧠 **Expert-level clarity**: Built on cutting-edge AI tools
+- ✨ **Visual-first learning**: Abstract concepts come to life through animation  
+- 🔗 **Agent-powered pipeline**: Separates research and rendering for modularity, traceability, and full control 
+- ⚡ **Fast, automated output**: From natural language to video in minutes
+- 🧠 **Research-grade insight**: Built on real scientific search + analysis
 
 ---
 
-### 💡 Ideal For
+### 💡 Who Is It For?
 
-- 👩‍💻 Developers learning advanced topics
-- 🎓 Students reviewing abstract concepts
-- 👨‍🏫 Teachers creating custom explainers
-- 📹 YouTubers producing technical content
+- 👩‍💻 **Developers** exploring unfamiliar systems or concepts  
+- 🎓 **Students** reviewing math, physics, CS, and more  
+- 👨‍🏫 **Teachers** designing custom visual explanations  
+- 📹 **Content creators** automating technical YouTube videos
 
 ---
 
-VisoCode isn’t just a tool. It’s a **thinking partner** and **video studio**—all rolled into one intelligent pipeline.
+VisoCode isn’t just a tool. It’s a **thinking partner** and **video studio**, all in one intelligent pipeline.
 
 ---
 
