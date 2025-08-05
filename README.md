@@ -3,12 +3,12 @@
 > ❓➡️ 📽️ VisoCode turns your questions into cinematic, expert-grade video explanations—powered by intelligent agents and rendered with Manim.
 
 ---
-## 🧠 Overview
+### 🧠 Overview
 
 VisoCode is an **AI-powered explainer engine** that transforms questions into **expert-level animated videos** using a multi-agent pipeline. Whether you're curious about quantum mechanics or calculus, Visocode gives you not just an answer, but an explanation you can **see**.
 ---
 
-## 🔄 How It Works
+### 🔄 How It Works
 
 1. 🙋‍♂️ **You ask a question**
 2. 🧠 **ResearchAgent** (powered by **Kimi-K2**) builds an expert explanation using:
@@ -25,7 +25,7 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
 
 ---
 
-## 🚀 Why VisoCode?
+### 🚀 Why VisoCode?
 
 - ✨ **Visual-first learning**: Understand abstract topics through animation  
 - 🔗 **Agent-powered pipeline**: Modular, explainable, and extendable  
@@ -34,7 +34,7 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
 
 ---
 
-## 💡 Ideal For
+### 💡 Ideal For
 
 - 👩‍💻 Developers learning advanced topics
 - 🎓 Students reviewing abstract concepts
