@@ -7,80 +7,76 @@ from smolagents.agents import ChatMessage
 class Enhanced3Blue1BrownFinalAnswerTool(Tool):
     name = "final_answer"
     description = (
-        "Generate a concise educational explanation with 1-2 animal icons for animation. "
-        "Outputs JSON with the explanation and icon metadata."
+        "Create a concise final JSON answer (2–4 sentences) and a small visual_brief (1–3 icon ideas). "
+        "Takes prior tool output; no icon generation here."
     )
     inputs = {
         "question": {"type": "string", "description": "The user's original question"},
-        "result": {"type": "string", "description": "The raw analysis output"},
-        "generate_icons": {
-            "type": "boolean",
-            "description": "Whether to generate animal icons",
-            "nullable": True,
-            "default": True,
-        },
+        "result": {"type": "string", "description": "Concatenated results from previous tools"},
     }
     output_type = "string"
 
-    def __init__(self, model, icon_tool=None):
+    def __init__(self, model):
         super().__init__()
         self.model = model
-        self.icon_tool = icon_tool
 
-    def forward(self, question: str, result: str, generate_icons: bool = True) -> str:
+    def forward(self, question: str, result: str) -> str:
+        system = ChatMessage(
+            role="system",
+            content=(
+                "You are a precise educator channeling a 3Blue1Brown explanation style.\n"
+                "- Write a self-contained explanation in 100–250 words.\n"
+                "- Lead with the core idea, then build intuition using 1–2 concrete visual cues "
+                "(e.g., 'imagine sliding along the curve', 'area under the graph', 'vectors rotating').\n"
+                "- Use stepwise reasoning, tiny examples, and invariants; bring in equations only when they anchor the intuition.\n"
+                "- Avoid fluff and flowery metaphors; keep visuals geometric and operational.\n"
+                "- After the explanation, propose a minimal visual plan: 1–3 concise icon ideas with short captions suitable as thumbnails/diagram elements.\n"
+            ),
+        )
+
+        user = ChatMessage(
+            role="user",
+            content=(
+                f"QUESTION:\n{question}\n\n"
+                f"CONTEXT FROM TOOLS:\n{result}\n\n"
+                "Respond strictly as JSON with keys:\n"
+                "  - explanation.content  (100–250 words, naturally weaving visual intuition; define any jargon briefly)\n"
+                "  - visual_brief         (array of 1–3 items, each {concept, caption} for icons/diagrams)\n"
+                "Guidelines:\n"
+                "  • Prioritize geometric/graph insight; keep algebra minimal but precise.\n"
+                "  • Use a tiny concrete example if it clarifies the main idea.\n"
+                "  • Keep the visual_brief practical for icon generation (short, specific, no prose blocks).\n"
+            ),
+        )
+        resp = self.model([system, user])
+        raw = (resp.content or "").strip()
+
+        # Try to parse JSON straight from the model (robust fallback below)
+        explanation = ""
+        visual_brief = []
+
         try:
-            # 1) System prompt for concise explanation
-            system = ChatMessage(
-                role="system",
-                content=(
-                    "You are an expert educator. Provide a very brief, intuitive explanation in plain language. "
-                    "Use no more than 4 sentences total. Focus on the core insight and avoid technical jargon."
-                ),
-            )
-            # 2) User prompt with question and analysis
-            user_msg = ChatMessage(
-                role="user",
-                content=(
-                    f"QUESTION: {question}\n"
-                    f"ANALYSIS: {result}\n\n"
-                    "Give a succinct explanation without equations."
-                ),
-            )
-            resp = self.model([system, user_msg])
-            explanation = resp.content.strip()
+            obj = json.loads(raw)
+            explanation = (obj.get("explanation", {}) or {}).get("content", "") or ""
+            vb = obj.get("visual_brief", []) or []
+            if isinstance(vb, list):
+                visual_brief = [
+                    {"concept": (x.get("concept") or "").strip(), "caption": (x.get("caption") or "").strip()}
+                    for x in vb if isinstance(x, dict)
+                ]
+        except Exception:
+            # Fallback: treat model output as plain text; take first 2–4 sentences,
+            # plus a tiny heuristic for bullet lines as concepts.
+            explanation = raw.split("\n\n")[0]
+            # Simple extraction of lines starting with '-', '*', or numbered
+            lines = [ln.strip("-* ").strip() for ln in raw.splitlines() if ln.strip().startswith(("-", "*"))]
+            for ln in lines[:3]:
+                visual_brief.append({"concept": ln.split(":")[0][:40], "caption": (":".join(ln.split(":")[1:]) or ln)[:80]})
 
-            # 3) Build result JSON
-            final_output = {
-                "question": question,
-                "explanation": {"content": explanation},
-                "visual_assets": {"icons": []},
-                "metadata": {"note": "Up to 2 animal metaphors"},
-            }
-
-            # 4) Optionally generate up to 2 animal icons
-            if generate_icons and self.icon_tool:
-                concept_sys = ChatMessage(
-                    role="system",
-                    content="From the explanation, extract up to 2 simple metaphoric concepts that are explicitly mentioned or clearly implied. These should be concrete things like animals, tools, forces, or objects that help visualize the explanation. List by common name only.",
-                )
-                concept_user = ChatMessage(role="user", content=explanation)
-                concept_resp = self.model([concept_sys, concept_user])
-                animals = [a.strip() for a in concept_resp.content.split(",")][:2]
-                if animals:
-                    icon_json = self.icon_tool.forward(
-                        concepts=",".join(animals),
-                        style="flat minimalist animal icons, educational style",
-                        context=f"Explanation for: {question}",
-                    )
-                    try:
-                        data = json.loads(icon_json)
-                        for icon in data.get("generated_icons", []):
-                            final_output["visual_assets"]["icons"].append(
-                                {"animal": icon["concept"], "path": icon["filename"]}
-                            )
-                    except json.JSONDecodeError:
-                        pass
-
-            return json.dumps(final_output, indent=2, ensure_ascii=False)
-        except Exception as e:
-            return json.dumps({"error": str(e)})
+        out = {
+            "question": question,
+            "explanation": {"content": explanation},
+            "visual_brief": visual_brief[:3],
+            "visual_assets": {"icons": []},
+        }
+        return json.dumps(out, ensure_ascii=False)

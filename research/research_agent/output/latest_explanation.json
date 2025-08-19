@@ -1,0 +1,36 @@
+{
+  "question": "What is the latest research in medical AI?",
+  "explanation": {
+    "content": "The freshest medical-AI frontier is 4DNeX: a single photograph is lifted into a living 3-D scene that evolves over time. Picture a still MRI slice; now imagine sliding that slice forward in time so the heart beats and vessels pulse. 4DNeX does this by treating every pixel as a 6-D point (RGB + XYZ) and letting a pre-trained video-diffusion model predict how each point should move. A tiny example: feed the network one chest X-ray; it hallucinates a 10-frame sequence where the diaphragm descends and ribs rotate, producing a dynamic point cloud doctors can replay from any angle. The key invariant is that the learned motion field must keep anatomical distances consistent—ribs don’t stretch like rubber. Efficiency comes from re-using video priors instead of training from scratch, so generation is feed-forward, not iterative optimization."
+  },
+  "visual_brief": [
+    {
+      "concept": "Single 2-D chest X-ray icon morphing into a rotating 3-D ribcage",
+      "caption": "1 photo → 4D body"
+    },
+    {
+      "concept": "6-D arrow (RGB+XYZ) sliding along a timeline",
+      "caption": "RGBXYZ motion field"
+    },
+    {
+      "concept": "Doctor’s hand scrubbing a mini 3-D heart like a video player",
+      "caption": "Interactive replay"
+    }
+  ],
+  "visual_assets": {
+    "icons": [
+      {
+        "concept": "Single 2-D chest X-ray icon morphing into a rotating 3-D ribcage",
+        "path": "icons/Single_2-D_chest_X-ray_icon_morphing_into_a_rotating_3-D_ribcage_icon_1.png"
+      },
+      {
+        "concept": "6-D arrow (RGB+XYZ) sliding along a timeline",
+        "path": "icons/6-D_arrow_RGBXYZ_sliding_along_a_timeline_icon_2.png"
+      },
+      {
+        "concept": "Doctor’s hand scrubbing a mini 3-D heart like a video player",
+        "path": "icons/Doctors_hand_scrubbing_a_mini_3-D_heart_like_a_video_player_icon_3.png"
+      }
+    ]
+  }
+}
