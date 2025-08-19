@@ -311,7 +311,10 @@ class GuardrailedMultiToolAgent:
                     if should_icons and "icon_generation" in self.tool_map:
                         tool = self.tool_map["icon_generation"]
                         vb = final_payload.get("visual_brief", []) or []
-                        concepts_payload = json.dumps({"visual_brief": vb}, ensure_ascii=False) if vb else final_payload.get("explanation", {}).get("content", "")
+                        concepts_payload = (
+                            json.dumps({"visual_brief": vb}, ensure_ascii=False)
+                            if vb else final_payload.get("explanation", {}).get("content", "")
+                        )
                         context = final_payload.get("explanation", {}).get("content", "") or user_input
                         icons_json = tool.forward(concepts=concepts_payload, style=None, context=context)
 
@@ -321,13 +324,25 @@ class GuardrailedMultiToolAgent:
                         try:
                             data = json.loads(icons_json)
                             for icon in data.get("generated_icons", []):
-                                icons_payload.append({"concept": icon.get("concept", ""), "path": icon.get("filename", "")})
+                                icons_payload.append({
+                                    "concept": icon.get("concept", ""),
+                                    "path": icon.get("filename", "")
+                                })
                         except Exception:
                             pass
+
+                        # ✅ Merge icons into existing payload instead of overwriting
+                        if "visual_assets" not in final_payload:
+                            final_payload["visual_assets"] = {}
                         final_payload["visual_assets"]["icons"] = icons_payload
+
+                        # Save full JSON (preserving question, explanation, visual_brief, etc.)
                         with open("output/latest_explanation.json", "w", encoding="utf-8") as f:
-                            f.write(json.dumps(final_payload, indent=2, ensure_ascii=False))
+                            json.dump(final_payload, f, indent=2, ensure_ascii=False)
+
                         print("\n🎨 Icons merged into output/latest_explanation.json")
+
+
                     continue
 
             except Exception as e:
