@@ -25,6 +25,9 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
    - 📐 Converts math into LaTeX-rendered visuals
    - 🧩 Coordinates  icons, timing, and transitions for clarity
 5. 🎞️ **Final Output**: A polished Manim animation that visualizes your question with expert clarity.
+
+![Overview](overview.png)
+
 ---
 
 ### 🚀 Why VisoCode?
