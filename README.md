@@ -8,6 +8,7 @@
 VisoCode is an **AI-powered explainer engine** that transforms questions into **expert-level animated videos** using a multi-agent pipeline. Whether you're curious about medical AI, calculus or the code base in front of you, Visocode gives you not just an answer, but an explanation you can **see**.
 
 ▶️ [Watch the demo video](https://github.com/user-attachments/assets/7b855524-8190-46c3-be1a-6a4bda1dd74d)
+
 ---
 
 ### 🔄 How It Works
