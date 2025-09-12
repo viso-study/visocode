@@ -1,12 +1,50 @@
+import os
+
+from manim_themes.manim_theme import apply_theme
 from manim_voiceover_fixed import VoiceoverScene
 from manim_voiceover_fixed.services.gtts import GTTSService
+from manim_voiceover_fixed.translate import get_gettext
 
 from manim import *
 
+LOCALE = os.getenv("LOCALE")
+DOMAIN = os.getenv("DOMAIN")
+
+_ = get_gettext()
+
 
 class Manim(VoiceoverScene):
+    def setup(self):
+        theme = "Andromeda"
+        apply_theme(manim_scene=self, theme_name=theme, light_theme=True)
+
+        # Here are the configs tht manim-themes sets by default
+        # feel free to change them to your liking
+        Text.set_default(color=WHITE)
+        Tex.set_default(color=WHITE)
+        MathTex.set_default(color=WHITE)
+
+        # Mobjects
+        Mobject.set_default(color=WHITE)
+        VMobject.set_default(color=WHITE)
+
+        Rectangle.set_default(color=RED)
+        AnnotationDot.set_default(stroke_color=WHITE, fill_color=BLUE)
+        Arc.set_default(stroke_color=WHITE)
+        AnnularSector.set_default(color=WHITE)
+
+        NumberPlane().set_default(
+            background_line_style={
+                "stroke_color": GRAY,
+            },
+            x_axis_config={"stroke_color": WHITE},
+            y_axis_config={"stroke_color": WHITE},
+        )
+        Arrow.set_default(color=WHITE)
+        Dot.set_default(color=WHITE)
+
     def construct(self):
-        self.set_speech_service(GTTSService(lang="en", transcription_model="base"))
+        self.set_speech_service(GTTSService(lang=LOCALE, transcription_model="base"))
 
         # Title
         title = Text("Why is the Sky Blue?", font_size=48).to_edge(UP)
@@ -14,7 +52,7 @@ class Manim(VoiceoverScene):
         self.wait(0.5)
 
         with self.voiceover(
-            text="Have you ever wondered why the sky appears blue on a clear day?"
+            text=_("Have you ever wondered why the sky appears blue on a clear day?")
         ):
             self.play(title.animate.shift(0.5 * UP))
 
@@ -24,7 +62,9 @@ class Manim(VoiceoverScene):
         self.wait(0.5)
 
         with self.voiceover(
-            text="It all comes down to how sunlight interacts with the Earth's atmosphere."
+            text=_(
+                "It all comes down to how sunlight interacts with the Earth's atmosphere."
+            )
         ):
             pass
 
@@ -48,7 +88,9 @@ class Manim(VoiceoverScene):
         sun_beam = VGroup(sun_beam_start, sun_beam_end)
 
         with self.voiceover(
-            text="Sunlight, which appears white to us, is actually made up of all the colors of the rainbow, each with a different wavelength. As sunlight enters the atmosphere, it encounters tiny gas molecules, like nitrogen and oxygen."
+            text=_(
+                "Sunlight, which appears white to us, is actually made up of all the colors of the rainbow, each with a different wavelength. As sunlight enters the atmosphere, it encounters tiny gas molecules, like nitrogen and oxygen."
+            )
         ):
             self.play(Create(sun_beam))
             self.play(FadeOut(sun))  # Fade out sun to focus on atmosphere
@@ -80,7 +122,9 @@ class Manim(VoiceoverScene):
         violet_text = spectrum_colors[0]
 
         with self.voiceover(
-            text="These molecules scatter sunlight in all directions. This is called Rayleigh scattering. Shorter wavelengths, like blue and violet, are scattered much more effectively than longer wavelengths, like red and orange."
+            text=_(
+                "These molecules scatter sunlight in all directions. This is called Rayleigh scattering. Shorter wavelengths, like blue and violet, are scattered much more effectively than longer wavelengths, like red and orange."
+            )
         ):
             self.play(FadeOut(spectrum_text))
             self.play(Write(spectrum_colors))
@@ -146,7 +190,9 @@ class Manim(VoiceoverScene):
         eye_text = Text("Our Eyes", font_size=20).next_to(eye, UP)
 
         with self.voiceover(
-            text="Because blue and violet light are scattered all over the sky, our eyes perceive the sky as blue. Violet light is scattered even more, but our eyes are more sensitive to blue, which is why we see a blue sky."
+            text=_(
+                "Because blue and violet light are scattered all over the sky, our eyes perceive the sky as blue. Violet light is scattered even more, but our eyes are more sensitive to blue, which is why we see a blue sky."
+            )
         ):
             self.play(
                 FadeOut(atmosphere_rect),
@@ -161,7 +207,9 @@ class Manim(VoiceoverScene):
         # Final thought
         final_text = Text("That's why the sky is blue!", font_size=36).to_edge(DOWN)
         with self.voiceover(
-            text="Sunsets are red because the longer wavelengths of light are less scattered and can travel directly to our eyes when the sun is low on the horizon."
+            text=_(
+                "Sunsets are red because the longer wavelengths of light are less scattered and can travel directly to our eyes when the sun is low on the horizon."
+            )
         ):
             self.play(Write(final_text))
             self.play(
