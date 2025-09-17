@@ -6,6 +6,7 @@
     "ms-python.vscode-python-envs",
     "charliermarsh.ruff",
     "esbenp.prettier-vscode",
-    "rickaym.manim-sideview"
+    "rickaym.manim-sideview",
+    "rlaphoenix.vapoursynth-preview-button"
   ]
 }

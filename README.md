@@ -3,11 +3,10 @@
 > 🙋‍♂️➡️🎞️ VisoCode turns questions into cinematic explanations—powered by AI agents, rendered with Manim.
 
 ---
+
 ### 🧠 Overview
 
 VisoCode is an **AI-powered explainer engine** that transforms questions into **expert-level animated videos** using a multi-agent pipeline. Whether you're curious about medical AI, calculus or the code base in front of you, Visocode gives you not just an answer, but an explanation you can **see**.
-
-▶️ [Watch the demo video](https://github.com/user-attachments/assets/7b855524-8190-46c3-be1a-6a4bda1dd74d)
 
 ---
 
@@ -23,17 +22,15 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
 4. 💻 **CodeAgent** (powered by **Gemini**) turns that explanation into:
    - 🎬 Writes frame-accurate Manim scene code
    - 📐 Converts math into LaTeX-rendered visuals
-   - 🧩 Coordinates  icons, timing, and transitions for clarity
+   - 🧩 Coordinates icons, timing, and transitions for clarity
 5. 🎞️ **Final Output**: A polished Manim animation that visualizes your question with expert clarity.
-
-![Overview](overview.png)
 
 ---
 
 ### 🚀 Why VisoCode?
 
-- ✨ **Visual-first learning**: Abstract concepts come to life through animation  
-- 🔗 **Agent-powered pipeline**: Separates research and rendering for modularity, traceability, and full control 
+- ✨ **Visual-first learning**: Abstract concepts come to life through animation
+- 🔗 **Agent-powered pipeline**: Separates research and rendering for modularity, traceability, and full control
 - ⚡ **Fast, automated output**: From natural language to video in minutes
 - 🧠 **Research-grade insight**: Built on real scientific search + analysis
 
@@ -41,9 +38,9 @@ VisoCode is an **AI-powered explainer engine** that transforms questions into **
 
 ### 💡 Who Is It For?
 
-- 👩‍💻 **Developers** exploring unfamiliar systems or concepts  
-- 🎓 **Students** reviewing math, physics, CS, and more  
-- 👨‍🏫 **Teachers** designing custom visual explanations  
+- 👩‍💻 **Developers** exploring unfamiliar systems or concepts
+- 🎓 **Students** reviewing math, physics, CS, and more
+- 👨‍🏫 **Teachers** designing custom visual explanations
 - 📹 **Content creators** automating technical YouTube videos
 
 ---

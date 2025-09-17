@@ -118,6 +118,6 @@ def latex_to_transparent_image(latex_code, output_path):
 # replace path
 
 # replace file names as appropriate
-convert_srt_to_ass("./media/videos/main/1080p60/Video.srt", "./media/temp.ass")
-process_latex_from_ass("./media/temp.ass", "./media/Video.ass")
+convert_srt_to_ass("./media/videos/main/1080p60/Manim_de.srt", "./media/temp.ass")
+process_latex_from_ass("./media/temp.ass", "./media/Manim_de.ass")
 os.remove("./media/temp.ass")

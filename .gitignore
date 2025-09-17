@@ -12,5 +12,7 @@ wheels/
 #API Keys
 *key*
 
+*.mo
+
 .env
 media/

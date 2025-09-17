@@ -1,15 +1,12 @@
-import os
-
 from manim_themes.manim_theme import apply_theme
-from manim_voiceover_fixed import VoiceoverScene
-from manim_voiceover_fixed.services.gtts import GTTSService
-from manim_voiceover_fixed.translate import get_gettext
+from manim_voiceover_plus import VoiceoverScene
+from manim_voiceover_plus.services.gtts import GTTSService
+from manim_voiceover_plus.translate import get_gettext
 
 from manim import *
 
-LOCALE = os.getenv("LOCALE")
-DOMAIN = os.getenv("DOMAIN")
-
+LOCALE = "de"
+DOMAIN = "translation-example"
 _ = get_gettext()
 
 
@@ -18,7 +15,7 @@ class Manim(VoiceoverScene):
         theme = "Andromeda"
         apply_theme(manim_scene=self, theme_name=theme, light_theme=True)
 
-        # Here are the configs tht manim-themes sets by default
+        # Here are the configs that manim-themes sets by default
         # feel free to change them to your liking
         Text.set_default(color=WHITE)
         Tex.set_default(color=WHITE)
@@ -52,7 +49,9 @@ class Manim(VoiceoverScene):
         self.wait(0.5)
 
         with self.voiceover(
-            text=_("Have you ever wondered why the sky appears blue on a clear day?")
+            text=_(
+                "Have you ever wondered why $e=mc^2$ the sky appears blue on a clear day?"
+            )
         ):
             self.play(title.animate.shift(0.5 * UP))
 
@@ -136,7 +135,7 @@ class Manim(VoiceoverScene):
         # Scattering visualization
         num_molecules = 25
         gas_molecules = VGroup()
-        for _ in range(num_molecules):
+        for i in range(num_molecules):
             # Correctly get a random 2D position within the atmosphere rectangle
             x_pos = np.random.uniform(
                 -atmosphere_rect.width / 2 * 0.9, atmosphere_rect.width / 2 * 0.9
@@ -156,7 +155,7 @@ class Manim(VoiceoverScene):
         scattered_light_red = VGroup()
 
         # Simulate scattering - more blue and violet, less red
-        for _ in range(20):
+        for i in range(20):
             # Generate random positions within the atmosphere rectangle
             x_pos = np.random.uniform(
                 -atmosphere_rect.width / 2 * 0.9, atmosphere_rect.width / 2 * 0.9
