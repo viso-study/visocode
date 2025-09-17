@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 22:38-0700\n"
-"PO-Revision-Date: 2025-09-16 22:38-0700\n"
+"POT-Creation-Date: 2025-09-16 23:09-0700\n"
+"PO-Revision-Date: 2025-09-16 23:09-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -18,39 +18,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\manim\main.py:53
+#: .\manim\main.py:50
 msgid ""
-"Have you ever wondered why $e=mc^2$ the sky appears blue on a clear day?"
-msgstr "Hast du dich jemals gefragt, warum $e=mc^2$ der Himmel an einem klaren Tag blau erscheint?"
+"This circle is drawn as I speak. The scene will wait for this sentence to "
+"finish before proceeding."
+msgstr "Dieser Kreis wird gezeichnet, während ich spreche. Die Szene wartet, bis dieser Satz beendet ist, bevor sie fortgesetzt wird."
 
-#: .\manim\main.py:65
+#: .\manim\main.py:57
 msgid ""
-"It all comes down to how sunlight interacts with the Earth's atmosphere."
-msgstr "Es hängt alles damit zusammen, wie das Sonnenlicht mit der Erdatmosphäre interagiert."
+"Let's shift the circle to the left 2 units... This animation takes as long "
+"as this text to be read."
+msgstr "Verschieben wir den Kreis um 2 Einheiten nach links... Diese Animation dauert so lange, wie dieser Text zu lesen ist."
 
-#: .\manim\main.py:91
+#: .\manim\main.py:70
 msgid ""
-"Sunlight, which appears white to us, is actually made up of all the colors "
-"of the rainbow, each with a different wavelength. As sunlight enters the "
-"atmosphere, it encounters tiny gas molecules, like nitrogen and oxygen."
-msgstr "Das Sonnenlicht, das uns weiß erscheint, besteht in Wirklichkeit aus allen Farben des Regenbogens, jede mit einer anderen Wellenlänge. Wenn das Sonnenlicht in die Atmosphäre eintritt, trifft es auf winzige Gasmoleküle, wie Stickstoff und Sauerstoff."
+"You can <bookmark mark='A'/>trigger animations <bookmark mark='B'/>at any "
+"word in the middle of a sentence by adding <bookmark mark='C'/>bookmarks to "
+"your text."
+msgstr "Sie können <bookmark mark='A'/>Animationen <bookmark mark='B'/>bei jedem Wort in der Mitte eines Satzes auslösen, indem Sie <bookmark mark='C'/>Lesezeichen in Ihren Text einfügen."
+
+#: .\manim\main.py:96
+msgid ""
+"Here is another example for more fine-tuned bookmarking. Super<bookmark "
+"mark='A'/>cali<bookmark mark='B'/>fragilistic<bookmark mark='C'/"
+">expiali<bookmark mark='D'/>docious."
+msgstr "Hier ist ein weiteres Beispiel für eine feinere Abstimmung der Lesezeichen. Super<bookmark mark='A'/>cali<bookmark mark='B'/>fragilistic<bookmark mark='C'/>expiali<bookmark mark='D'/>docious."
 
 #: .\manim\main.py:125
 msgid ""
-"These molecules scatter sunlight in all directions. This is called Rayleigh "
-"scattering. Shorter wavelengths, like blue and violet, are scattered much "
-"more effectively than longer wavelengths, like red and orange."
-msgstr "Diese Moleküle streuen das Sonnenlicht in alle Richtungen. Dies wird als Rayleigh-Streuung bezeichnet. Kürzere Wellenlängen, wie Blau und Violett, werden viel stärker gestreut als längere Wellenlängen, wie Rot und Orange."
+"Now let's talk about subtitles. Subtitles are automatically generated as a "
+"\".srt\" file next to the video output. By default, the subtitle is the same "
+"as the text, however you can modify this behavior by specifying the "
+"subcaption property."
+msgstr "Kommen wir nun zu den Untertiteln. Untertitel werden automatisch als \".srt\" Datei neben der Videoausgabe generiert. Standardmäßig ist der Untertitel derselbe wie der Text, aber Sie können dieses Verhalten ändern, indem Sie die Eigenschaft subcaption angeben."
 
-#: .\manim\main.py:193
+#: .\manim\main.py:128
 msgid ""
-"Because blue and violet light are scattered all over the sky, our eyes "
-"perceive the sky as blue. Violet light is scattered even more, but our eyes "
-"are more sensitive to blue, which is why we see a blue sky."
-msgstr "Da blaues und violettes Licht überall am Himmel gestreut wird, nehmen unsere Augen den Himmel als blau wahr. Violettes Licht wird noch stärker gestreut, aber unsere Augen sind empfindlicher für Blau, weshalb wir einen blauen Himmel sehen."
+"This is a custom subcaption that lasts the duration of this scene. You can "
+"say facts like Yotsuba is the best Quintuplet."
+msgstr "Dies ist ein benutzerdefinierter Untertitel, der für die Dauer der Szene gilt. Sie können z. B. sagen, dass Yotsuba das beste Quintuplet ist."
 
-#: .\manim\main.py:210
+#: .\manim\main.py:135
 msgid ""
-"Sunsets are red because the longer wavelengths of light are less scattered "
-"and can travel directly to our eyes when the sun is low on the horizon."
-msgstr "Sonnenuntergänge sind rot, weil die längeren Wellenlängen des Lichts weniger gestreut werden und direkt zu unseren Augen gelangen können, wenn die Sonne tief am Horizont steht."
+"Why would this be helpful? Many times, we want to insert LaTeX into the "
+"subcaptions, however the text-to-speech isn't able to pronounce it "
+"correctly. As an example, here's the L2 norm of a vector and Mass-energy "
+"Equivalence."
+msgstr "Warum ist das hilfreich? Oft wollen wir LaTeX in die Untertitel einfügen, aber die Text-to-Speech-Funktion ist nicht in der Lage, sie richtig auszusprechen. Als Beispiel hier die L2-Norm eines Vektors und die Masse-Energie-Äquivalenz."
+
+#: .\manim\main.py:138
+#, python-brace-format
+msgid ""
+"Why would this be helpful? Many times, we want to insert LaTeX into the "
+"subcaptions, however the text-to-speech isn't able to pronounce it "
+"correctly. As an example, here's $\\left\\lVert{x}\\right\\rVert_2$ and $e = "
+"mc^2$"
+msgstr "Warum ist das hilfreich? Oft wollen wir LaTeX in die Untertitel einfügen, aber die Text-to-Speech-Anwendung ist nicht in der Lage, sie richtig auszusprechen. Hier ein Beispiel: $\\left\\lVert{x}\\right\\rVert_2$ und $e = mc^2$"
+
+#: .\manim\main.py:145
+msgid ""
+"This also allows us to add SSML-like customizations to the voiceover, like "
+"\"insert emotion\" into the voices ———————— or add \"pauses\"....... without "
+"affecting the subcaption. This works on ElevenLabs... but not GTTS."
+msgstr "So können wir auch SSML-ähnliche Anpassungen in das Voiceover einfügen, z. B. \"Emotion einfügen\" in die Stimmen -------- oder \"Pausen einfügen\" ......., ohne die Untertitel zu beeinflussen. Dies funktioniert bei ElevenLabs... aber nicht bei GTTS."
+
+#: .\manim\main.py:148
+msgid ""
+"This also allows us to add SSML-like customizations to the voiceover, like "
+"insert emotion into the voices, or add pauses... without affecting the "
+"subcaption. This works on ElevenLabs but not GTTS."
+msgstr "Dies ermöglicht uns auch SSML-ähnliche Anpassungen des Voiceovers, wie z. B. das Einfügen von Emotionen in die Stimmen oder das Hinzufügen von Pausen... ohne die Untertitel zu beeinflussen. Dies funktioniert mit ElevenLabs, aber nicht mit GTTS."

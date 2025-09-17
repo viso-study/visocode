@@ -8,48 +8,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 22:38-0700\n"
+"POT-Creation-Date: 2025-09-16 23:09-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\manim\main.py:53
+#: .\manim\main.py:50
 msgid ""
-"Have you ever wondered why $e=mc^2$ the sky appears blue on a clear day?"
+"This circle is drawn as I speak. The scene will wait for this sentence to "
+"finish before proceeding."
 msgstr ""
 
-#: .\manim\main.py:65
+#: .\manim\main.py:57
 msgid ""
-"It all comes down to how sunlight interacts with the Earth's atmosphere."
+"Let's shift the circle to the left 2 units... This animation takes as long "
+"as this text to be read."
 msgstr ""
 
-#: .\manim\main.py:91
+#: .\manim\main.py:70
 msgid ""
-"Sunlight, which appears white to us, is actually made up of all the colors "
-"of the rainbow, each with a different wavelength. As sunlight enters the "
-"atmosphere, it encounters tiny gas molecules, like nitrogen and oxygen."
+"You can <bookmark mark='A'/>trigger animations <bookmark mark='B'/>at any "
+"word in the middle of a sentence by adding <bookmark mark='C'/>bookmarks to "
+"your text."
+msgstr ""
+
+#: .\manim\main.py:96
+msgid ""
+"Here is another example for more fine-tuned bookmarking. Super<bookmark "
+"mark='A'/>cali<bookmark mark='B'/>fragilistic<bookmark mark='C'/"
+">expiali<bookmark mark='D'/>docious."
 msgstr ""
 
 #: .\manim\main.py:125
 msgid ""
-"These molecules scatter sunlight in all directions. This is called Rayleigh "
-"scattering. Shorter wavelengths, like blue and violet, are scattered much "
-"more effectively than longer wavelengths, like red and orange."
+"Now let's talk about subtitles. Subtitles are automatically generated as a "
+"\".srt\" file next to the video output. By default, the subtitle is the same "
+"as the text, however you can modify this behavior by specifying the "
+"subcaption property."
 msgstr ""
 
-#: .\manim\main.py:193
+#: .\manim\main.py:128
 msgid ""
-"Because blue and violet light are scattered all over the sky, our eyes "
-"perceive the sky as blue. Violet light is scattered even more, but our eyes "
-"are more sensitive to blue, which is why we see a blue sky."
+"This is a custom subcaption that lasts the duration of this scene. You can "
+"say facts like Yotsuba is the best Quintuplet."
 msgstr ""
 
-#: .\manim\main.py:210
+#: .\manim\main.py:135
 msgid ""
-"Sunsets are red because the longer wavelengths of light are less scattered "
-"and can travel directly to our eyes when the sun is low on the horizon."
+"Why would this be helpful? Many times, we want to insert LaTeX into the "
+"subcaptions, however the text-to-speech isn't able to pronounce it "
+"correctly. As an example, here's the L2 norm of a vector and Mass-energy "
+"Equivalence."
+msgstr ""
+
+#: .\manim\main.py:138
+#, python-brace-format
+msgid ""
+"Why would this be helpful? Many times, we want to insert LaTeX into the "
+"subcaptions, however the text-to-speech isn't able to pronounce it "
+"correctly. As an example, here's $\\left\\lVert{x}\\right\\rVert_2$ and $e = "
+"mc^2$"
+msgstr ""
+
+#: .\manim\main.py:145
+msgid ""
+"This also allows us to add SSML-like customizations to the voiceover, like "
+"\"insert emotion\" into the voices ———————— or add \"pauses\"....... without "
+"affecting the subcaption. This works on ElevenLabs... but not GTTS."
+msgstr ""
+
+#: .\manim\main.py:148
+msgid ""
+"This also allows us to add SSML-like customizations to the voiceover, like "
+"insert emotion into the voices, or add pauses... without affecting the "
+"subcaption. This works on ElevenLabs but not GTTS."
 msgstr ""
