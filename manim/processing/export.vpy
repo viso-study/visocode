@@ -8,9 +8,30 @@ core.std.LoadPlugin(path="C:/Users/ai/dev/visocode/manim/processing/BestSource.d
 video = core.bs.VideoSource(
     source="C:/Users/ai/dev/visocode/media/videos/main/1080p60/Manim_de.mp4"
 )
-subtitled_video = core.vsfm.TextSubMod(
-    video, "C:/Users/ai/dev/visocode/media/Manim_de.ass"
-)
+# Ensure the ASS subtitle file is UTF-8 with BOM, as some Windows renderers expect a BOM
+ass_path = "C:/Users/ai/dev/visocode/media/Manim_de.ass"
+try:
+    with open(ass_path, "rb") as _f:
+        data = _f.read()
+    # If file is valid UTF-8 but missing BOM, add BOM
+    if not data.startswith(b"\xef\xbb\xbf"):
+        try:
+            data.decode("utf-8")
+            with open(ass_path, "wb") as _f:
+                _f.write(b"\xef\xbb\xbf" + data)
+        except UnicodeDecodeError:
+            # If not valid UTF-8, attempt to decode as cp1252 and re-encode as UTF-8 with BOM
+            try:
+                text = data.decode("cp1252")
+                with open(ass_path, "wb") as _f:
+                    _f.write(b"\xef\xbb\xbf" + text.encode("utf-8"))
+            except Exception:
+                # If all else fails, leave the file as-is
+                pass
+except Exception:
+    pass
+
+subtitled_video = core.vsfm.TextSubMod(video, ass_path)
 subtitled_video.set_output()
 
 # Paths should be changed as appropriate
